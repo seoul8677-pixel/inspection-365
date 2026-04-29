@@ -533,3 +533,167 @@ p { margin: 0 0 1em; }
         font-size: 1.75rem;
     }
 }
+
+/* ============================================== */
+/* PROJECTS 페이지 (YUUA 스타일) */
+/* ============================================== */
+
+.projects-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+}
+
+/* 페이지 타이틀 */
+.projects-page .headline {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 카테고리 필터 */
+#item {
+    margin-bottom: 48px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 0;
+}
+
+#item > div {
+    display: none; /* 모바일에서만 보임 */
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+#item > div span::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+#item > div span.open::after {
+    content: " ▲";
+}
+
+#item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+    justify-content: center;
+}
+
+#item ul li {
+    cursor: pointer;
+}
+
+#item ul li span {
+    color: #888;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    padding: 4px 0;
+    display: inline-block;
+}
+
+#item ul li span:hover {
+    color: #1a1a1a;
+}
+
+#item ul li span.current {
+    color: #1a1a1a;
+    font-weight: 600;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+/* 프로젝트 그리드 */
+#case {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+#case figure {
+    margin: 0;
+    overflow: hidden;
+}
+
+#case figure a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+#case figure img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: opacity 0.3s, transform 0.3s;
+    background: #f0f4f8;
+}
+
+#case figure:hover img {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
+#case figure figcaption {
+    padding: 12px 4px 0;
+}
+
+#case figure figcaption p {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1024px) {
+    #case {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-page {
+        padding: 40px 16px 60px;
+    }
+
+    .projects-page .headline {
+        font-size: 1.5rem;
+    }
+
+    /* 모바일에서 카테고리 토글 가능하게 */
+    #item > div {
+        display: block;
+        text-align: center;
+    }
+
+    #item ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 12px;
+    }
+
+    #item ul li {
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    #case {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    #case figure img {
+        height: 280px;
+    }
+}
