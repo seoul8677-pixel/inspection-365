@@ -121,25 +121,18 @@ header {
   position: fixed;
   z-index: 1001;
   color: #ffffff;
+  background: linear-gradient(to bottom, rgba(60, 60, 60, 0.92) 0%, rgba(60, 60, 60, 0.6) 60%, rgba(60, 60, 60, 0) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
-/* 스크롤 시 나타나는 검정 배경 (translate3d 슬라이드인) */
+/* ::before 효과 폐기 — 회색 그라디언트가 header background로 직접 들어감 */
 header::before {
-  content: "";
-  position: absolute;
-  left: -10%;
-  width: 120%;
-  height: 100%;
-  background: #000000;
-  transform: translate3d(0, -100%, 0);
-  z-index: -1;
-  box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 100px 0px;
-  transition: transform 0.3s;
+  display: none;
 }
 
-/* JS가 .sticky 클래스를 추가하면 배경 내려옴 */
 header.sticky::before {
-  transform: translate3d(0, 0, 0);
+  display: none;
 }
 
 /* studio / projects 등 내부 페이지는 항상 배경 표시.
@@ -166,8 +159,8 @@ header #gnav {
 
 header #gnav ul {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: flex-end;
+  gap: 60px;
   color: #ffffff;
 }
 
@@ -176,21 +169,23 @@ header #gnav ul li {
 }
 
 header #gnav ul li a {
-  transition: 0.5s;
+  transition: 0.3s;
   color: #ffffff;
   font-family: Inter, sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.02em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
 }
 
 header #gnav ul li a:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
-/* 현재 페이지 메뉴 표시 */
+/* 현재 페이지 메뉴 표시 — 흰색 1px 밑줄 (opacity 변화 없음) */
 header #gnav ul li a.nav-current {
-  opacity: 0.5;
+  border-bottom: 1px solid #ffffff;
   cursor: default;
   pointer-events: none;
 }
