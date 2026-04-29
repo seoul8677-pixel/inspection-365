@@ -1,229 +1,181 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="건축사사무소 서울(SEOUL Architects) 소개 - 대표 프로필, 자격증, 보유 장비, 정기점검 실적.">
-    <title>STUDIO | 건축사사무소 서울</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://inspection-365.com/studio.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STUDIO | 건축사사무소 서울</title>
+  <meta name="description" content="건축사사무소 서울 - 사무소 소개, 철학, 팀, 수상 이력, 서비스, 회사 정보.">
+  <link rel="canonical" href="https://inspection-365.com/studio.html">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://inspection-365.com/studio.html">
-    <meta property="og:title" content="STUDIO | 건축사사무소 서울">
-    <meta property="og:description" content="건축사사무소 서울 소개 - 대표 프로필, 자격증, 보유 장비, 정기점검 실적.">
-    <meta property="og:image" content="https://inspection-365.com/assets/og-image.png">
-    <meta property="og:locale" content="ko_KR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- 상단 네비게이션 -->
-    <nav class="top-nav">
-        <div class="container">
-            <a href="/" class="brand">건축사사무소 서울</a>
-            <ul class="nav-links">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/studio.html" class="active">STUDIO</a></li>
-                <li><a href="/projects.html">PROJECTS</a></li>
-                <li><a href="/#contact">CONTACT</a></li>
-            </ul>
-        </div>
+<body class="page-inner">
+
+  <div id="logo">
+    <a href="index.html">SEOUL<br>Architects</a>
+  </div>
+
+  <button id="trigger" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
+
+  <header class="sticky">
+    <nav id="gnav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="studio.html" class="nav-current">STUDIO</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- 페이지 헤더 -->
-    <header class="page-header">
-        <div class="container">
-            <h1>STUDIO</h1>
-            <p class="subtitle">건축사사무소 서울 · SEOUL Architects</p>
+  <main>
+
+    <h2 class="headline">STUDIO</h2>
+
+    <div id="outline">
+      <p>
+        건축사사무소 서울은 서울을 거점으로 하는 일급 건축사 사무소입니다.
+        장소의 특성과 클라이언트와의 깊은 대화를 소중히 여기며, 합당한 공간을 만들어 내는 것을 중시합니다.
+        넓은 용도의 건물 기획·설계·감리 업무를 중심으로, 공간 디자인에 관한 종합적인 제안을 실시합니다.
+        다양한 업무를 통해 도시와 사회에 공헌할 수 있도록 탐구해 나갈 것입니다.
+      </p>
+    </div>
+
+    <div class="photo">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='800' viewBox='0 0 1400 800'%3E%3Crect width='1400' height='800' fill='%23222'/%3E%3Ctext x='700' y='420' text-anchor='middle' font-family='sans-serif' font-size='32' fill='%23888'%3E%5B%EC%82%AC%EB%AC%B4%EC%86%8C %EC%82%AC%EC%A7%84%5D%3C/text%3E%3C/svg%3E" alt="사무소 내부">
+    </div>
+
+    <h2 class="headline">PHILOSOPHY</h2>
+
+    <div id="philosophy">
+      <div>
+        <h3>맞춤형 공간 설계</h3>
+        <p>지역성 · 고객에게 적합한 장소<br>유일무이한 제안</p>
+      </div>
+      <div>
+        <h3>시간을 초월한 존재감</h3>
+        <p>전통과 미래의 조화<br>시간이 흐를수록 깊어지는 공간</p>
+      </div>
+      <div>
+        <h3>친환경적인 시도</h3>
+        <p>사람과 자연의 조화<br>지속 가능한 디자인</p>
+      </div>
+    </div>
+
+    <h2 class="headline">TEAM</h2>
+
+    <div id="team">
+
+      <section>
+        <div>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d0d0d0'/%3E%3Ccircle cx='200' cy='110' r='60' fill='%23a0a0a0'/%3E%3Cellipse cx='200' cy='240' rx='90' ry='70' fill='%23a0a0a0'/%3E%3C/svg%3E" alt="대표자 사진">
         </div>
-    </header>
-
-    <main>
-        <!-- 1. 사무소 소개 -->
-        <section class="studio-intro">
-            <div class="container">
-                <h2>사무소 소개</h2>
-                <p class="placeholder-block">
-                    [채울 곳: 사무소 한 단락 소개. 예) 건축사사무소 서울은 ○○년에 설립된 건축사사무소로, 건축물 정기점검·실측·설계 전문 사무소입니다. 자체 개발한 건축물 생애이력 앱과 3D 스캐너를 활용해 빠르고 정확한 점검·실측 서비스를 제공합니다.]
-                </p>
-            </div>
-        </section>
-
-        <!-- 2. 대표 프로필 -->
-        <section class="profile-section">
-            <div class="container">
-                <h2>대표 프로필</h2>
-                <div class="profile-grid">
-                    <div class="profile-photo">
-                        <div class="photo-placeholder">
-                            <span>[채울 곳: 대표 사진]</span>
-                        </div>
-                    </div>
-                    <div class="profile-info">
-                        <table class="info-table">
-                            <tr>
-                                <th>이름</th>
-                                <td>[채울 곳: 이름]</td>
-                            </tr>
-                            <tr>
-                                <th>직책</th>
-                                <td>[채울 곳: 대표 / 소장 / 책임건축사]</td>
-                            </tr>
-                            <tr>
-                                <th>학력</th>
-                                <td>
-                                    [채울 곳: 학력 1]<br>
-                                    [채울 곳: 학력 2 (있으면)]
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>주요 경력</th>
-                                <td>
-                                    [채울 곳: 경력 1]<br>
-                                    [채울 곳: 경력 2]<br>
-                                    [채울 곳: 경력 3 (있으면)]
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 자격증 -->
-        <section class="certifications-section">
-            <div class="container">
-                <h2>자격증</h2>
-                <ul class="cert-list">
-                    <li>
-                        <span class="cert-name">[채울 곳: 자격증 1 명칭]</span>
-                        <span class="cert-number">[채울 곳: 등록번호]</span>
-                    </li>
-                    <li>
-                        <span class="cert-name">[채울 곳: 자격증 2 명칭]</span>
-                        <span class="cert-number">[채울 곳: 등록번호]</span>
-                    </li>
-                    <li>
-                        <span class="cert-name">[채울 곳: 자격증 3 명칭]</span>
-                        <span class="cert-number">[채울 곳: 등록번호]</span>
-                    </li>
-                </ul>
-                <p class="note-text">※ 자격증 항목은 보유한 만큼 추가/삭제 가능합니다.</p>
-            </div>
-        </section>
-
-        <!-- 4. 사무소 등록 정보 -->
-        <section class="registration-section">
-            <div class="container">
-                <h2>사무소 정보</h2>
-                <table class="info-table">
-                    <tr>
-                        <th>사무소명</th>
-                        <td>건축사사무소 서울</td>
-                    </tr>
-                    <tr>
-                        <th>영문명</th>
-                        <td>SEOUL Architects</td>
-                    </tr>
-                    <tr>
-                        <th>건축사사무소 등록번호</th>
-                        <td>[채울 곳: 등록번호]</td>
-                    </tr>
-                    <tr>
-                        <th>사업자등록번호</th>
-                        <td>[채울 곳: 사업자등록번호]</td>
-                    </tr>
-                    <tr>
-                        <th>설립연도</th>
-                        <td>[채울 곳: 연도]</td>
-                    </tr>
-                    <tr>
-                        <th>주소</th>
-                        <td>[채울 곳: 주소]</td>
-                    </tr>
-                    <tr>
-                        <th>대표 전화</th>
-                        <td>[채울 곳: 전화번호]</td>
-                    </tr>
-                    <tr>
-                        <th>이메일</th>
-                        <td><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-
-        <!-- 5. 보유 장비·역량 (차별화) -->
-        <section class="equipment-section highlight-section">
-            <div class="container">
-                <h2>보유 장비 · 역량</h2>
-                <p class="section-intro">사무소가 보유한 장비와 자체 개발 도구입니다.</p>
-                <div class="equipment-grid">
-                    <div class="equipment-card">
-                        <h3>3D 스캐너</h3>
-                        <p>[채울 곳: 모델명 또는 간단 설명. 예) 도면 없는 노후 건축물의 정밀 실측 가능]</p>
-                    </div>
-                    <div class="equipment-card">
-                        <h3>건축물 생애이력 앱</h3>
-                        <p>[채울 곳: 자체 개발 앱 설명. 예) 정기점검·이력관리를 위한 자체 모바일 앱]</p>
-                    </div>
-                    <div class="equipment-card">
-                        <h3>BIM 도구</h3>
-                        <p>[채울 곳: Revit / ArchiCAD 등]</p>
-                    </div>
-                    <div class="equipment-card">
-                        <h3>점검 장비</h3>
-                        <p>[채울 곳: 열화상 카메라 / 반발경도측정기 / 철근탐사기 등 보유 장비]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. 정기점검 실적 -->
-        <section class="record-section">
-            <div class="container">
-                <h2>정기점검 실적</h2>
-                <div class="record-grid">
-                    <div class="record-card">
-                        <span class="record-number">[채울 곳: 건수]</span>
-                        <span class="record-label">누적 점검 건수</span>
-                    </div>
-                    <div class="record-card">
-                        <span class="record-number">[채울 곳: 연도]</span>
-                        <span class="record-label">점검 시작 시기</span>
-                    </div>
-                    <div class="record-card">
-                        <span class="record-number">[채울 곳: 지역]</span>
-                        <span class="record-label">활동 지역</span>
-                    </div>
-                </div>
-                <p class="note-text">시 배정 정기점검을 꾸준히 진행하고 있으며, 다중이용건축물·집합건축물·다중이용업소 점검을 전문으로 합니다.</p>
-            </div>
-        </section>
-
-        <!-- 7. 문의 CTA -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>문의하기</h2>
-                <p>점검·설계·실측 의뢰는 카카오톡 또는 이메일로 연락 주세요.</p>
-                <div class="cta-buttons">
-                    <a href="http://pf.kakao.com/_HvIMX" class="btn-kakao" target="_blank">카카오톡 채널</a>
-                    <a href="mailto:seoul8677@naver.com" class="btn-email">이메일 보내기</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 푸터 -->
-    <footer>
-        <div class="container">
-            <p>건축사사무소 서울 · SEOUL Architects</p>
-            <p class="links">
-                <a href="https://blog.naver.com/flyinge" target="_blank">블로그</a> ·
-                <a href="https://www.youtube.com/@seoul-g5r" target="_blank">유튜브</a>
-            </p>
-            <p class="copyright">© 2026 건축사사무소 서울. All rights reserved.</p>
+        <div>
+          <span>[채울 곳: 영문 이름]</span>
+          <h3>[채울 곳: 한글 이름]</h3>
+          <p>대표 · 일급 건축사</p>
         </div>
-    </footer>
+        <div>
+          <dl><dt>[채울 곳: 출신지]</dt><dd>출신</dd></dl>
+          <dl><dt>[채울 곳: 연도]</dt><dd>[채울 곳: 학교명] 졸업</dd></dl>
+          <dl><dt>[채울 곳: 연도]</dt><dd>건축사사무소 서울 설립</dd></dl>
+        </div>
+      </section>
+
+    </div>
+
+    <h2 class="headline">AWARDS</h2>
+
+    <div id="awards">
+      <dl>
+        <dt>[연도]</dt>
+        <dd>[채울 곳: 수상명 및 수상 작품]</dd>
+      </dl>
+      <dl>
+        <dt>[연도]</dt>
+        <dd>[채울 곳: 수상명 및 수상 작품]</dd>
+      </dl>
+    </div>
+
+    <h2 class="headline">SERVICE</h2>
+
+    <div id="service">
+      <p>
+        건축을 비롯한 공간에 관한 종합적인 제안을 실시합니다.<br>
+        장소의 특성과 클라이언트와의 대화를 소중히 여기며, 적절한 공간을 함께 만들어 갑니다.
+      </p>
+      <ul>
+        <li>건축물 정기점검 (시 배정 점검 / 다중이용건축물 / 집합건축물 등)</li>
+        <li>3D 스캔 실측 (도면 없는 노후 건축물 정밀 실측)</li>
+        <li>건축 설계 (단독주택 / 공동주택 / 근린생활시설)</li>
+        <li>리노베이션 / 인테리어 디자인</li>
+        <li>도면 복원 / BIM 변환</li>
+      </ul>
+      <p>
+        무료 상담을 실시하고 있으니 <a href="index.html#contact">CONTACT</a> 에서 부담 없이 문의해 주세요.
+      </p>
+    </div>
+
+    <h2 class="headline">COMPANY INFO</h2>
+
+    <div id="companyinfo">
+      <div>
+        <dl><dt>상 호</dt><dd>건축사사무소 서울 / SEOUL Architects</dd></dl>
+        <dl><dt>등록</dt><dd>[채울 곳: 건축사사무소 등록 번호]</dd></dl>
+        <dl><dt>창업</dt><dd>[채울 곳: 설립 연도]</dd></dl>
+        <dl><dt>소재지</dt><dd id="list"><span>[채울 곳: 우편번호]</span><span>[채울 곳: 서울시 주소]</span></dd></dl>
+        <dl><dt>대표자</dt><dd>[채울 곳: 대표자 이름]</dd></dl>
+        <dl><dt>연락처</dt><dd><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></dd></dl>
+      </div>
+      <div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e8e8e0'/%3E%3Ctext x='200' y='210' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23666'%3E%5B%EC%9C%84%EC%B9%98 %EC%A7%80%EB%8F%84%5D%3C/text%3E%3C/svg%3E" alt="사무소 위치">
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div id="inner">
+      <address>
+        <dl><dt>ADD</dt><dd><span>[채울 곳: 주소]</span></dd></dl>
+        <dl><dt>TEL</dt><dd><a href="tel:000-0000-0000">[채울 곳: 전화번호]</a></dd></dl>
+        <dl><dt>MAIL</dt><dd><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></dd></dl>
+      </address>
+      <div id="sns">
+        <ul>
+          <li>
+            <a href="https://blog.naver.com/flyinge" target="_blank" aria-label="블로그">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 4.5h18v15H3z"/><path d="M7 9h10M7 13h10M7 17h6"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@seoul-g5r" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 7c0-1.5 1-2.5 2.5-2.5h14c1.5 0 2.5 1 2.5 2.5v10c0 1.5-1 2.5-2.5 2.5h-14C3.5 19.5 2.5 18.5 2.5 17V7z"/>
+                <path d="M10 9l5 3-5 3z" fill="#000" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="http://pf.kakao.com/_HvIMX" target="_blank" aria-label="카카오톡 채널">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="11" rx="9" ry="7"/><path d="M9 17l-1 4 4-2.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="credit">건축사사무소 서울 © 2026 SEOUL Architects</div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>

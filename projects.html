@@ -1,168 +1,204 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="건축사사무소 서울의 프로젝트 갤러리 - 단독주택, 공동주택, 근린생활시설, 정기점검, 3D 스캔 실측 사례.">
-    <title>PROJECTS | 건축사사무소 서울</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://inspection-365.com/projects.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECTS | 건축사사무소 서울</title>
+  <meta name="description" content="건축사사무소 서울의 프로젝트 갤러리 - 단독주택, 공동주택, 근린생활시설, 정기점검, 3D 스캔 실측 사례.">
+  <link rel="canonical" href="https://inspection-365.com/projects.html">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://inspection-365.com/projects.html">
-    <meta property="og:title" content="PROJECTS | 건축사사무소 서울">
-    <meta property="og:description" content="건축사사무소 서울의 프로젝트 갤러리 - 단독주택, 공동주택, 근린생활시설, 정기점검, 3D 스캔 실측 사례.">
-    <meta property="og:locale" content="ko_KR">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inspection-365.com/projects.html">
+  <meta property="og:title" content="PROJECTS | 건축사사무소 서울">
+  <meta property="og:description" content="건축사사무소 서울의 프로젝트 갤러리 - 단독주택, 공동주택, 근린생활시설, 정기점검, 3D 스캔 실측 사례.">
+  <meta property="og:locale" content="ko_KR">
 
-    <!-- jQuery (필터링용) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- jQuery (필터링용) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body>
+<body class="page-inner">
 
-<!-- 상단 네비게이션 (기존 패턴 따름) -->
-<nav class="top-nav">
-    <div class="container">
-        <a href="/" class="brand">건축사사무소 서울</a>
-        <ul class="nav-links">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/studio.html">STUDIO</a></li>
-            <li><a href="/projects.html" class="active">PROJECTS</a></li>
-            <li><a href="/#contact">CONTACT</a></li>
-        </ul>
-    </div>
-</nav>
+  <div id="logo">
+    <a href="index.html">SEOUL<br>Architects</a>
+  </div>
 
-<main class="projects-page">
+  <button id="trigger" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
 
-    <!-- 페이지 타이틀 -->
-    <h2 class="headline">projects</h2>
+  <header class="sticky">
+    <nav id="gnav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="studio.html">STUDIO</a></li>
+        <li><a href="projects.html" class="nav-current">PROJECTS</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <h2 class="headline">PROJECTS</h2>
 
     <!-- 카테고리 필터 -->
     <div id="item">
-        <div><span>category</span></div>
-        <ul>
-            <li id="all"><span class="current">all</span></li>
-            <li id="inspection"><span>정기점검</span></li>
-            <li id="scan"><span>3D스캔</span></li>
-            <li id="house"><span>단독주택</span></li>
-            <li id="apartment"><span>공동주택</span></li>
-            <li id="commercial"><span>근린생활시설</span></li>
-            <li id="interior"><span>인테리어</span></li>
-            <li id="renovation"><span>리모델링</span></li>
-        </ul>
+      <div><span>category</span></div>
+      <ul>
+        <li id="all"><span class="current">all</span></li>
+        <li id="inspection"><span>정기점검</span></li>
+        <li id="scan"><span>3D스캔</span></li>
+        <li id="house"><span>단독주택</span></li>
+        <li id="apartment"><span>공동주택</span></li>
+        <li id="commercial"><span>근린생활시설</span></li>
+        <li id="interior"><span>인테리어</span></li>
+        <li id="renovation"><span>리모델링</span></li>
+      </ul>
     </div>
 
     <!-- 프로젝트 그리드 -->
     <div id="case">
 
-        <!-- 자리표시자 카드들. 본인이 실제 프로젝트로 교체 -->
-        <!-- 각 figure의 class 에 카테고리 키를 띄어쓰기로 나열, 마지막은 all 필수 -->
+      <!-- 자리표시자 카드들. 본인이 실제 프로젝트로 교체 -->
+      <!-- 각 figure의 class 에 카테고리 키를 띄어쓰기로 나열, 마지막은 all 필수 -->
 
-        <figure class="inspection all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 1 — 정기점검 사례]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="inspection all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 1 — 정기점검 사례]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="scan all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 2 — 3D 스캔 실측]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="scan all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 2 — 3D 스캔 실측]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="house all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 3 — 단독주택 설계]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="house all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 3 — 단독주택 설계]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="apartment all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 4 — 공동주택]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="apartment all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 4 — 공동주택]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="commercial all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 5 — 근린생활시설]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="commercial all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 5 — 근린생활시설]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="interior all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 6 — 인테리어]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="interior all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 6 — 인테리어]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="renovation all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 7 — 리모델링]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="renovation all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 7 — 리모델링]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="house renovation all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 8 — 단독주택 리모델링 (다중 카테고리 예시)]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="house renovation all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 8 — 단독주택 리모델링 (다중 카테고리 예시)]</p></figcaption>
+        </a>
+      </figure>
 
-        <figure class="inspection scan all">
-            <a href="#">
-                <img src="assets/projects/placeholder.svg" alt="자리표시자">
-                <figcaption><p>[프로젝트 9 — 점검 + 3D 스캔]</p></figcaption>
-            </a>
-        </figure>
+      <figure class="inspection scan all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[프로젝트 9 — 점검 + 3D 스캔]</p></figcaption>
+        </a>
+      </figure>
 
     </div>
-</main>
 
-<!-- 푸터 (기존 index.html 패턴 따름) -->
-<footer>
-    <div class="container">
-        <p>건축사사무소 서울 · SEOUL Architects</p>
-        <p class="links">
-            <a href="https://blog.naver.com/flyinge" target="_blank">블로그</a> ·
-            <a href="https://www.youtube.com/@seoul-g5r" target="_blank">유튜브</a>
-        </p>
-        <p class="copyright">© 2026 건축사사무소 서울. All rights reserved.</p>
+  </main>
+
+  <footer>
+    <div id="inner">
+      <address>
+        <dl><dt>ADD</dt><dd><span>[채울 곳: 주소]</span></dd></dl>
+        <dl><dt>TEL</dt><dd><a href="tel:000-0000-0000">[채울 곳: 전화번호]</a></dd></dl>
+        <dl><dt>MAIL</dt><dd><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></dd></dl>
+      </address>
+      <div id="sns">
+        <ul>
+          <li>
+            <a href="https://blog.naver.com/flyinge" target="_blank" aria-label="블로그">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 4.5h18v15H3z"/><path d="M7 9h10M7 13h10M7 17h6"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@seoul-g5r" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 7c0-1.5 1-2.5 2.5-2.5h14c1.5 0 2.5 1 2.5 2.5v10c0 1.5-1 2.5-2.5 2.5h-14C3.5 19.5 2.5 18.5 2.5 17V7z"/>
+                <path d="M10 9l5 3-5 3z" fill="#000" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="http://pf.kakao.com/_HvIMX" target="_blank" aria-label="카카오톡 채널">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="11" rx="9" ry="7"/><path d="M9 17l-1 4 4-2.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-</footer>
+    <div id="credit">건축사사무소 서울 © 2026 SEOUL Architects</div>
+  </footer>
 
-<!-- 카테고리 필터 JavaScript (YUUA 원본 그대로) -->
-<script>
-$('#item ul li span').on('click', function() {
-    $('#item ul li span').removeClass('current');
-    $(this).addClass('current');
-});
+  <!-- 카테고리 필터 JavaScript (YUUA 원본 그대로) -->
+  <script>
+  $('#item ul li span').on('click', function() {
+      $('#item ul li span').removeClass('current');
+      $(this).addClass('current');
+  });
 
-$(function() {
-    $('#item ul li').each(function() {
-        $(this).click(function() {
-            var idname = $(this).attr("id");
-            var classname = '.' + idname;
-            $('#case figure').css('display', 'none');
-            $(classname).fadeIn(500);
-        });
-    });
-});
+  $(function() {
+      $('#item ul li').each(function() {
+          $(this).click(function() {
+              var idname = $(this).attr("id");
+              var classname = '.' + idname;
+              $('#case figure').css('display', 'none');
+              $(classname).fadeIn(500);
+          });
+      });
+  });
 
-// 모바일 카테고리 토글
-$(function() {
-    $('#item div').on('click', function() {
-        $(this).next().slideToggle(200);
-        $('#item div span').toggleClass('open', 200);
-    });
-});
-</script>
+  // 모바일 카테고리 토글
+  $(function() {
+      $('#item div').on('click', function() {
+          $(this).next().slideToggle(200);
+          $('#item div span').toggleClass('open', 200);
+      });
+  });
+  </script>
 
+  <script src="main.js"></script>
 </body>
 </html>
