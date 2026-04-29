@@ -22,7 +22,7 @@
   <!-- jQuery (필터링용) -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body class="page-inner">
+<body>
 
   <div id="logo">
     <a href="index.html">SEOUL<br>Architects</a>
@@ -35,10 +35,10 @@
   <header class="sticky">
     <nav id="gnav">
       <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="studio.html">STUDIO</a></li>
         <li><a href="projects.html" class="nav-current">PROJECTS</a></li>
-        <li><a href="index.html#contact">CONTACT</a></li>
+        <li><a href="studio.html">STUDIO</a></li>
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
       </ul>
     </nav>
   </header>
@@ -51,14 +51,13 @@
     <div id="item">
       <div><span>category</span></div>
       <ul>
-        <li id="all"><span class="current">all</span></li>
-        <li id="inspection"><span>정기점검</span></li>
-        <li id="scan"><span>3D스캔</span></li>
-        <li id="house"><span>단독주택</span></li>
-        <li id="apartment"><span>공동주택</span></li>
-        <li id="commercial"><span>근린생활시설</span></li>
-        <li id="interior"><span>인테리어</span></li>
-        <li id="renovation"><span>리모델링</span></li>
+        <li id="all"><span class="current" data-filter="all">all</span></li>
+        <li id="scan"><span data-filter="scan">3D SCAN</span></li>
+        <li id="house"><span data-filter="house">HOUSE</span></li>
+        <li id="apartment"><span data-filter="apartment">APARTMENT</span></li>
+        <li id="commercial"><span data-filter="commercial">COMMERCIAL</span></li>
+        <li id="interior"><span data-filter="interior">INTERIOR</span></li>
+        <li id="renovation"><span data-filter="renovation">RENOVATION</span></li>
       </ul>
     </div>
 
@@ -68,66 +67,59 @@
       <!-- 자리표시자 카드들. 본인이 실제 프로젝트로 교체 -->
       <!-- 각 figure의 class 에 카테고리 키를 띄어쓰기로 나열, 마지막은 all 필수 -->
 
-      <figure class="inspection all">
-        <a href="#">
-          <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 1 — 정기점검 사례]</p></figcaption>
-        </a>
-      </figure>
-
       <figure class="scan all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 2 — 3D 스캔 실측]</p></figcaption>
+          <figcaption><p>[3D SCAN PROJECT 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="house all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 3 — 단독주택 설계]</p></figcaption>
+          <figcaption><p>[HOUSE PROJECT 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="apartment all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 4 — 공동주택]</p></figcaption>
+          <figcaption><p>[APARTMENT PROJECT 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="commercial all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 5 — 근린생활시설]</p></figcaption>
+          <figcaption><p>[COMMERCIAL 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="interior all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 6 — 인테리어]</p></figcaption>
+          <figcaption><p>[INTERIOR PROJECT 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="renovation all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 7 — 리모델링]</p></figcaption>
+          <figcaption><p>[RENOVATION PROJECT 01]</p></figcaption>
         </a>
       </figure>
 
       <figure class="house renovation all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 8 — 단독주택 리모델링 (다중 카테고리 예시)]</p></figcaption>
+          <figcaption><p>[HOUSE PROJECT 02 — RENOVATION (multi-category)]</p></figcaption>
         </a>
       </figure>
 
-      <figure class="inspection scan all">
+      <figure class="scan all">
         <a href="#">
           <img src="assets/projects/placeholder.svg" alt="자리표시자">
-          <figcaption><p>[프로젝트 9 — 점검 + 3D 스캔]</p></figcaption>
+          <figcaption><p>[3D SCAN PROJECT 02]</p></figcaption>
         </a>
       </figure>
 
