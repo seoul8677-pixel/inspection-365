@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-  <rect width="1920" height="1080" fill="#1f1f1f"/>
-  <circle cx="960" cy="540" r="300" fill="none" stroke="#444" stroke-width="2"/>
-  <circle cx="960" cy="540" r="200" fill="none" stroke="#555" stroke-width="2"/>
-  <text x="960" y="550" font-family="Inter, sans-serif" font-size="48" fill="#666" text-anchor="middle" letter-spacing="0.1em">SLIDE 03</text>
-</svg>
