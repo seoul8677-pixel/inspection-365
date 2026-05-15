@@ -33,14 +33,87 @@
     </nav>
   </header>
 
-  <main>
+  <main class="news-page">
 
     <h2 class="headline">NEWS</h2>
 
-    <div id="outline">
-      <p>
-        [채울 곳: NEWS 페이지 콘텐츠 — 미디어 게재 이력, 수상, 보도자료 등]
-      </p>
+    <p class="news-intro">
+      건축 법규 변경, 정책 동향, 업계 주요 이슈를 모아 공유합니다.
+    </p>
+
+    <!-- 카테고리 필터 -->
+    <div id="news-filter">
+      <ul>
+        <li><span class="current" data-cat="all">ALL</span></li>
+        <li><span data-cat="law">법규</span></li>
+        <li><span data-cat="policy">정책</span></li>
+        <li><span data-cat="industry">업계</span></li>
+      </ul>
+    </div>
+
+    <!-- 글 리스트 — 자비스가 자동으로 article 추가 -->
+    <div id="newslist">
+
+      <!-- ⬇️ 자비스 자동 게시 영역 시작 (이 주석 위치 유지) -->
+
+      <!-- 샘플 글 1 — 본인이 동작 확인 후 삭제하거나 자비스가 덮어씀 -->
+      <article class="news-item law">
+        <header class="news-meta">
+          <time datetime="2026-05-15">2026.05.15</time>
+          <span class="news-cat">법규</span>
+          <span class="news-importance" title="중요도">★★★</span>
+        </header>
+        <h3>[샘플] 건축법 시행령 일부개정 공포</h3>
+        <p>
+          다중이용업소 정기점검 주기가 기존 2년에서 1년으로 단축됩니다.
+          시행일은 2026년 7월 1일부터이며, 기존 점검 이력이 있는 시설도 신규 주기 적용 대상입니다.
+          세부 기준은 국토부 별도 고시로 정해질 예정입니다.
+        </p>
+        <footer>
+          <a href="#" target="_blank" rel="noopener">원문 보기 →</a>
+        </footer>
+      </article>
+
+      <!-- 샘플 글 2 -->
+      <article class="news-item policy">
+        <header class="news-meta">
+          <time datetime="2026-05-12">2026.05.12</time>
+          <span class="news-cat">정책</span>
+          <span class="news-importance" title="중요도">★★</span>
+        </header>
+        <h3>[샘플] 국토부, 건축공사 감리세부기준 일부 개정</h3>
+        <p>
+          고시 제2026-XXX호로 건축공사 감리세부기준이 일부 개정되었습니다.
+          주요 변경 사항은 점검표 양식 일부 조정 및 검측 항목 추가입니다.
+        </p>
+        <footer>
+          <a href="#" target="_blank" rel="noopener">원문 보기 →</a>
+        </footer>
+      </article>
+
+      <!-- 샘플 글 3 -->
+      <article class="news-item industry">
+        <header class="news-meta">
+          <time datetime="2026-05-08">2026.05.08</time>
+          <span class="news-cat">업계</span>
+          <span class="news-importance" title="중요도">★</span>
+        </header>
+        <h3>[샘플] 광주 모 공사장 외벽 일부 붕괴, 국토부 안전점검 지시</h3>
+        <p>
+          시공 중인 건축물의 외벽 일부가 붕괴되는 사고가 발생, 인근 유사 공정 현장에 대한 긴급 안전점검이 지시되었습니다.
+        </p>
+        <footer>
+          <a href="#" target="_blank" rel="noopener">원문 보기 →</a>
+        </footer>
+      </article>
+
+      <!-- ⬆️ 자비스 자동 게시 영역 끝 (이 주석 위치 유지) -->
+
+    </div>
+
+    <!-- 더 보기 (Phase 4에서 30개 넘으면 노출) -->
+    <div class="news-more" style="display:none;">
+      <button type="button">이전 글 더 보기</button>
     </div>
 
   </main>
@@ -82,6 +155,29 @@
     <div id="credit">건축사사무소 서울 © 2026 SEOUL Architects</div>
   </footer>
 
+  <script>
+    // 카테고리 필터 — projects.html과 같은 패턴
+    (function() {
+      var spans = document.querySelectorAll('#news-filter ul li span');
+      var items = document.querySelectorAll('#newslist .news-item');
+
+      spans.forEach(function(span) {
+        span.addEventListener('click', function() {
+          spans.forEach(function(s) { s.classList.remove('current'); });
+          this.classList.add('current');
+
+          var cat = this.getAttribute('data-cat');
+          items.forEach(function(item) {
+            if (cat === 'all' || item.classList.contains(cat)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
   <script src="main.js"></script>
 </body>
 </html>
