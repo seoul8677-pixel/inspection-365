@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>건축사사무소 서울 | SEOUL Architects</title>
-  <meta name="description" content="건축사사무소 서울은 정기점검·실측·설계 전문 사무소입니다. 자체 개발 앱과 3D 스캐너를 활용한 빠르고 정확한 서비스.">
+  <meta name="description" content="건축사사무소 서울 - 단독주택, 공동주택, 근린생활시설, 정기점검, 3D 스캔 실측 프로젝트 갤러리.">
   <link rel="canonical" href="https://inspection-365.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://inspection-365.com/">
   <meta property="og:title" content="건축사사무소 서울 | SEOUL Architects">
-  <meta property="og:description" content="정기점검·실측·설계 전문 건축사사무소.">
+  <meta property="og:description" content="정기점검·실측·설계 전문 건축사사무소의 프로젝트 갤러리.">
   <meta property="og:locale" content="ko_KR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- jQuery (필터링용) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -32,7 +35,7 @@
   <header class="sticky">
     <nav id="gnav">
       <ul>
-        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="projects.html" class="nav-current">PROJECTS</a></li>
         <li><a href="studio.html">STUDIO</a></li>
         <li><a href="news.html">NEWS</a></li>
         <li><a href="contact.html">CONTACT</a></li>
@@ -40,107 +43,103 @@
     </nav>
   </header>
 
-  <div id="outline">
+  <main>
 
-    <div id="tagline">
-      <h2>
-        CREATING<br>
-        A BETTER PLACE
-        <span>더 나은 공간을 창조합니다</span>
-      </h2>
-      <p>
-        건축사사무소 서울은 서울을 거점으로 하는 일급 건축사 사무소입니다.
-        장소의 특성과 클라이언트와의 깊은 대화를 소중히 여기며,
-        공간의 본연의 모습을 탐구합니다.
-        넓은 용도의 건물 기획·설계·감리 업무를 중심으로,
-        공간 디자인에 관한 종합적인 제안을 실시합니다.
-        전통과 미래, 사람과 자연의 조화를 추구하며
-        하나하나 정성스럽게 공간을 디자인합니다.
-      </p>
+    <h2 class="headline">PROJECTS</h2>
+
+    <!-- 카테고리 필터 -->
+    <div id="item">
+      <div><span>category</span></div>
+      <ul>
+        <li id="all"><span class="current" data-filter="all">all</span></li>
+        <li id="scan"><span data-filter="scan">3D SCAN</span></li>
+        <li id="house"><span data-filter="house">HOUSE</span></li>
+        <li id="apartment"><span data-filter="apartment">APARTMENT</span></li>
+        <li id="commercial"><span data-filter="commercial">COMMERCIAL</span></li>
+        <li id="interior"><span data-filter="interior">INTERIOR</span></li>
+        <li id="renovation"><span data-filter="renovation">RENOVATION</span></li>
+      </ul>
     </div>
 
+    <!-- 프로젝트 그리드 -->
     <div id="case">
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23c8c8c8'/%3E%3Crect x='200' y='300' width='500' height='350' fill='%23aaa'/%3E%3Crect x='300' y='180' width='180' height='120' fill='%23aaa'/%3E%3C/svg%3E" alt="단독주택 프로젝트 01">
-          <figcaption>단독주택 프로젝트 01</figcaption>
+
+      <!-- 자리표시자 카드들. 본인이 실제 프로젝트로 교체 -->
+      <!-- 각 figure의 class 에 카테고리 키를 띄어쓰기로 나열, 마지막은 all 필수 -->
+
+      <figure class="scan all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[3D SCAN PROJECT 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23b0b8c0'/%3E%3Crect x='150' y='150' width='600' height='600' fill='%23909aa0'/%3E%3Crect x='200' y='200' width='120' height='80' fill='%23ccd'/%3E%3Crect x='380' y='200' width='120' height='80' fill='%23ccd'/%3E%3Crect x='560' y='200' width='120' height='80' fill='%23ccd'/%3E%3C/svg%3E" alt="공동주택 프로젝트 01">
-          <figcaption>공동주택 프로젝트 01</figcaption>
+
+      <figure class="house all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[HOUSE PROJECT 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23d4cfc8'/%3E%3Crect x='100' y='100' width='700' height='700' fill='%23bcb5ac'/%3E%3Crect x='150' y='600' width='600' height='150' fill='%23a09890'/%3E%3C/svg%3E" alt="근린생활시설 01">
-          <figcaption>근린생활시설 01</figcaption>
+
+      <figure class="apartment all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[APARTMENT PROJECT 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23e8e4de'/%3E%3Crect x='0' y='600' width='900' height='300' fill='%23c8c0b0'/%3E%3Crect x='50' y='100' width='300' height='400' fill='%23d8d0c8'/%3E%3C/svg%3E" alt="인테리어 프로젝트 01">
-          <figcaption>인테리어 프로젝트 01</figcaption>
+
+      <figure class="commercial all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[COMMERCIAL 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23787060'/%3E%3Crect x='50' y='50' width='800' height='800' fill='%23686058' rx='2'/%3E%3Crect x='100' y='100' width='300' height='600' fill='%23504840'/%3E%3C/svg%3E" alt="리모델링 프로젝트 01">
-          <figcaption>리모델링 프로젝트 01</figcaption>
+
+      <figure class="interior all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[INTERIOR PROJECT 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23e0e8f0'/%3E%3Ccircle cx='450' cy='350' r='250' fill='none' stroke='%23b0c0d0' stroke-width='4'/%3E%3Ccircle cx='450' cy='350' r='100' fill='%23c0d0e0'/%3E%3C/svg%3E" alt="정기점검 프로젝트 01">
-          <figcaption>정기점검 프로젝트 01</figcaption>
+
+      <figure class="renovation all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[RENOVATION PROJECT 01]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%231a1a2e'/%3E%3Cpolygon points='450,100 800,700 100,700' fill='none' stroke='%2300aaff' stroke-width='3'/%3E%3C/svg%3E" alt="3D스캔 프로젝트 01">
-          <figcaption>3D스캔 프로젝트 01</figcaption>
+
+      <figure class="house renovation all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[HOUSE PROJECT 02 — RENOVATION (multi-category)]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23f5f0e8'/%3E%3Crect x='100' y='350' width='700' height='450' fill='%23ddd5c0'/%3E%3Cpolygon points='80,360 450,120 820,360' fill='%23c8bea8'/%3E%3C/svg%3E" alt="단독주택 프로젝트 02">
-          <figcaption>단독주택 프로젝트 02</figcaption>
+
+      <figure class="scan all">
+        <a href="#">
+          <img src="assets/projects/placeholder.svg" alt="자리표시자">
+          <figcaption><p>[3D SCAN PROJECT 02]</p></figcaption>
         </a>
       </figure>
-      <figure>
-        <a href="projects.html">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Crect width='900' height='900' fill='%23f8f6f2'/%3E%3Crect x='600' y='100' width='250' height='550' fill='%23e8e0d5'/%3E%3Crect x='50' y='400' width='400' height='280' fill='%23d8c8a8' rx='4'/%3E%3C/svg%3E" alt="인테리어 프로젝트 02">
-          <figcaption>인테리어 프로젝트 02</figcaption>
-        </a>
-      </figure>
+
     </div>
 
-  </div>
+  </main>
 
   <footer>
     <div id="inner">
       <address>
-        <dl>
-          <dt>ADD</dt>
-          <dd><span>[채울 곳: 주소]</span></dd>
-        </dl>
-        <dl>
-          <dt>TEL</dt>
-          <dd><a href="tel:000-0000-0000">[채울 곳: 전화번호]</a></dd>
-        </dl>
-        <dl>
-          <dt>MAIL</dt>
-          <dd><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></dd>
-        </dl>
+        <dl><dt>ADD</dt><dd><span>[채울 곳: 주소]</span></dd></dl>
+        <dl><dt>TEL</dt><dd><a href="tel:000-0000-0000">[채울 곳: 전화번호]</a></dd></dl>
+        <dl><dt>MAIL</dt><dd><a href="mailto:seoul8677@naver.com">seoul8677@naver.com</a></dd></dl>
       </address>
       <div id="sns">
         <ul>
           <li>
             <a href="https://blog.naver.com/flyinge" target="_blank" aria-label="블로그">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 4.5h18v15H3z"/>
-                <path d="M7 9h10M7 13h10M7 17h6"/>
+                <path d="M3 4.5h18v15H3z"/><path d="M7 9h10M7 13h10M7 17h6"/>
               </svg>
             </a>
           </li>
@@ -155,8 +154,7 @@
           <li>
             <a href="http://pf.kakao.com/_HvIMX" target="_blank" aria-label="카카오톡 채널">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="12" cy="11" rx="9" ry="7"/>
-                <path d="M9 17l-1 4 4-2.5"/>
+                <ellipse cx="12" cy="11" rx="9" ry="7"/><path d="M9 17l-1 4 4-2.5"/>
               </svg>
             </a>
           </li>
@@ -165,6 +163,33 @@
     </div>
     <div id="credit">건축사사무소 서울 © 2026 SEOUL Architects</div>
   </footer>
+
+  <!-- 카테고리 필터 JavaScript (YUUA 원본 그대로) -->
+  <script>
+  $('#item ul li span').on('click', function() {
+      $('#item ul li span').removeClass('current');
+      $(this).addClass('current');
+  });
+
+  $(function() {
+      $('#item ul li').each(function() {
+          $(this).click(function() {
+              var idname = $(this).attr("id");
+              var classname = '.' + idname;
+              $('#case figure').css('display', 'none');
+              $(classname).fadeIn(500);
+          });
+      });
+  });
+
+  // 모바일 카테고리 토글
+  $(function() {
+      $('#item div').on('click', function() {
+          $(this).next().slideToggle(200);
+          $('#item div span').toggleClass('open', 200);
+      });
+  });
+  </script>
 
   <script src="main.js"></script>
 </body>
