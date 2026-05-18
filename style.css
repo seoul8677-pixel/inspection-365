@@ -1334,114 +1334,108 @@ main > #outline {
   opacity: 1;
 }
 
-/* 글 리스트 */
-#newslist {
-  border-top: 1px solid #000000;
+/* 글 리스트 — 협회 사이트 형식 테이블 (kira.or.kr/jsp/main/01/04_03.jsp) */
+.news-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #000000;
   margin-bottom: 80px;
-}
-
-/* 각 글 */
-.news-item {
-  border-bottom: 1px solid #d9d9d9;
-  padding: 32px 0;
-}
-
-/* 메타정보: 날짜 · 카테고리 · 중요도 */
-.news-item .news-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: Inter, sans-serif;
-  font-size: 13px;
-  color: #777777;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.news-item .news-meta time {
-  font-weight: 500;
-  color: #555555;
-  letter-spacing: 0.03em;
-}
-
-.news-item .news-meta .news-cat {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 12px;
-  padding: 3px 10px;
-  background-color: #f0f0f0;
-  color: #555555;
-  border-radius: 2px;
-  letter-spacing: 0.02em;
-}
-
-.news-item .news-meta .news-importance {
-  font-size: 13px;
-  color: #999999;
-  letter-spacing: 1px;
-}
-
-/* 카테고리별 태그 색상 */
-.news-item.law .news-cat {
-  background-color: #2c2c2c;
-  color: #ffffff;
-}
-
-.news-item.policy .news-cat {
-  background-color: #555555;
-  color: #ffffff;
-}
-
-.news-item.industry .news-cat {
-  background-color: #e8e8e8;
-  color: #333333;
-}
-
-/* 글 제목 */
-.news-item h3 {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0 0 12px;
-  color: #000000;
-  letter-spacing: 0;
-}
-
-.news-item h3 a {
-  color: #000000;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.news-item h3 a:hover {
-  opacity: 0.6;
-}
-
-/* 글 요약 */
-.news-item p {
+  table-layout: fixed;
   font-size: 14px;
-  line-height: 1.9;
-  color: #333333;
-  margin: 0 0 12px;
   text-align: left;
 }
 
-/* 글 푸터 — 원문 링크 */
-.news-item footer {
-  text-align: right;
+/* 헤더: 옅은 회색 배경 */
+.news-table thead tr {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #cccccc;
 }
 
-.news-item footer a {
+.news-table thead th {
   font-family: Inter, sans-serif;
+  font-weight: 500;
   font-size: 13px;
-  color: #555555;
+  color: #333333;
+  padding: 14px 12px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* 컬럼 너비 */
+.news-table .col-num    { width: 80px;  text-align: center; }
+.news-table .col-title  { width: auto; }
+.news-table .col-source { width: 140px; text-align: center; }
+.news-table .col-date   { width: 110px; text-align: center; }
+
+/* 각 행: 협회 사이트처럼 다닥다닥 */
+.news-table tbody tr {
+  border-bottom: 1px solid #e5e5e5;
+  transition: background-color 0.15s;
+}
+
+.news-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.news-table tbody td {
+  padding: 12px 12px;
+  vertical-align: middle;
+  color: #333333;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 제목 컬럼 — 좌측 정렬, 본문 색 */
+.news-table tbody td.col-title {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.news-table tbody td.col-title a {
+  color: #000000;
   text-decoration: none;
-  letter-spacing: 0.03em;
   transition: 0.2s;
 }
 
-.news-item footer a:hover {
-  color: #000000;
+.news-table tbody td.col-title a:hover {
+  color: #555555;
+  text-decoration: underline;
 }
+
+/* 매체·작성일: 옅은 톤 */
+.news-table tbody td.col-source,
+.news-table tbody td.col-date {
+  color: #777777;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+}
+
+.news-table tbody td.col-num {
+  color: #999999;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+}
+
+/* 카테고리 필터링 대상: tr.news-row */
+.news-row.law    .col-title::before,
+.news-row.policy .col-title::before,
+.news-row.industry .col-title::before {
+  display: inline-block;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  margin-right: 10px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+.news-row.law    .col-title::before { content: "법규"; background: #2c2c2c; color: #ffffff; }
+.news-row.policy .col-title::before { content: "정책"; background: #555555; color: #ffffff; }
+.news-row.industry .col-title::before { content: "업계"; background: #e8e8e8; color: #333333; }
 
 /* 더 보기 버튼 */
 .news-more {
@@ -1467,7 +1461,7 @@ main > #outline {
   color: #ffffff;
 }
 
-/* 모바일 (1000px 이하) */
+/* 모바일 (1000px 이하) — 모바일에서는 번호 숨김, 매체 폭 축소 */
 @media screen and (max-width: 1000px) {
   .news-page .news-intro {
     font-size: 13px;
@@ -1478,21 +1472,23 @@ main > #outline {
     gap: 20px;
   }
 
-  .news-item {
-    padding: 24px 0;
+  .news-table {
+    font-size: 13px;
   }
 
-  .news-item .news-meta {
-    flex-wrap: wrap;
-    gap: 8px 12px;
+  .news-table .col-num,
+  .news-table thead th.col-num {
+    display: none;
+  }
+
+  .news-table .col-source { width: 90px; }
+  .news-table .col-date   { width: 90px; }
+
+  .news-table thead th,
+  .news-table tbody td {
+    padding: 10px 6px;
     font-size: 12px;
   }
 
-  .news-item h3 {
-    font-size: 16px;
-  }
-
-  .news-item p {
-    font-size: 13px;
-  }
+  .news-table tbody td.col-title { font-size: 13px; }
 }
