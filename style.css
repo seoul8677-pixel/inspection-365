@@ -1365,7 +1365,16 @@ main > #outline {
 .news-table .col-num    { width: 80px;  text-align: center; }
 .news-table .col-title  { width: auto; }
 .news-table .col-source { width: 140px; text-align: center; }
-.news-table .col-date   { width: 110px; text-align: center; }
+.news-table .col-date   { width: 130px; text-align: center; }
+
+/* 관리자 모드: 작성일 셀 넓혀서 [×] 버튼 공간 확보 + overflow 풀기 */
+body.admin-mode .news-table .col-date {
+  width: 180px;
+}
+body.admin-mode .news-table tbody td.col-date {
+  overflow: visible;
+  white-space: nowrap;
+}
 
 /* 각 행: 협회 사이트처럼 다닥다닥 */
 .news-table tbody tr {
@@ -1557,7 +1566,10 @@ body.admin-mode::before {
   }
 
   .news-table .col-source { width: 90px; }
-  .news-table .col-date   { width: 90px; }
+  .news-table .col-date   { width: 110px; }
+
+  /* 모바일 admin-mode에서도 작성일 셀 확장 */
+  body.admin-mode .news-table .col-date { width: 150px; }
 
   .news-table thead th,
   .news-table tbody td {
