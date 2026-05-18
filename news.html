@@ -67,31 +67,31 @@
           <td class="col-num">9</td>
           <td class="col-title"><a href="http://fpn119.co.kr/250872" target="_blank" rel="noopener noreferrer">지하주차장 단열재 불연화ㆍ배관 보온재 화재안전성 강화 법안 ‘현실화...</a></td>
           <td class="col-source">네이버 뉴스</td>
-          <td class="col-date">2026-05-08</td>
+          <td class="col-date">2026-05-18</td>
         </tr>
         <tr class="news-row industry">
           <td class="col-num">8</td>
           <td class="col-title"><a href="https://www.namdonews.com/news/articleView.html?idxno=910610" target="_blank" rel="noopener noreferrer">[현장속으로]&quot;대형의료시설 공사로 피해 막심&quot;…속타는 인근 상인</a></td>
           <td class="col-source">네이버 뉴스</td>
-          <td class="col-date">2026-05-14</td>
+          <td class="col-date">2026-05-18</td>
         </tr>
         <tr class="news-row industry">
           <td class="col-num">7</td>
           <td class="col-title"><a href="https://n.news.naver.com/mnews/ranking/article/022/0004128444?ntype=RANKING" target="_blank" rel="noopener noreferrer">“4년제 자퇴하면 되나?”…SK하이닉스 생산직 공채에 몰린 청년들, 결국 ‘하닉고시’까지 등장</a></td>
           <td class="col-source">네이버 인기</td>
-          <td class="col-date">2026-05-16</td>
+          <td class="col-date">2026-05-18</td>
         </tr>
         <tr class="news-row policy">
           <td class="col-num">6</td>
           <td class="col-title"><a href="https://www.law.go.kr/행정규칙/분양가상한제 적용주택의 기본형건축비 및 가산비용" target="_blank" rel="noopener noreferrer">[국토교통부 고시] 분양가상한제 적용주택의 기본형건축비 및 가산비용</a></td>
           <td class="col-source">법제처</td>
-          <td class="col-date">2026-03-01</td>
+          <td class="col-date">2026-05-15</td>
         </tr>
         <tr class="news-row policy">
           <td class="col-num">5</td>
           <td class="col-title"><a href="https://www.law.go.kr/행정규칙/건축물 안전영향평가 세부기준" target="_blank" rel="noopener noreferrer">[국토교통부 고시] 건축물 안전영향평가 세부기준</a></td>
           <td class="col-source">법제처</td>
-          <td class="col-date">2026-04-24</td>
+          <td class="col-date">2026-05-15</td>
         </tr>
         <tr class="news-row industry">
           <td class="col-num">4</td>
@@ -103,28 +103,26 @@
           <td class="col-num">3</td>
           <td class="col-title"><a href="https://www.law.go.kr/행정규칙/민간건설공사 표준도급계약서" target="_blank" rel="noopener noreferrer">[국토교통부 고시] 민간건설공사 표준도급계약서</a></td>
           <td class="col-source">법제처</td>
-          <td class="col-date">2026-01-16</td>
+          <td class="col-date">2026-05-15</td>
         </tr>
         <tr class="news-row policy">
           <td class="col-num">2</td>
           <td class="col-title"><a href="https://www.law.go.kr/행정규칙/(국토교통부) 제3종시설물의 지정 고시" target="_blank" rel="noopener noreferrer">[국토교통부 고시] (국토교통부) 제3종시설물의 지정 고시</a></td>
           <td class="col-source">법제처</td>
-          <td class="col-date">2026-01-20</td>
+          <td class="col-date">2026-05-15</td>
         </tr>
         <tr class="news-row law">
           <td class="col-num">1</td>
           <td class="col-title"><a href="https://www.law.go.kr/법령/건축물관리법 시행령" target="_blank" rel="noopener noreferrer">건축물관리법 시행령</a></td>
           <td class="col-source">법제처</td>
-          <td class="col-date">2026-03-24</td>
+          <td class="col-date">2026-05-15</td>
         </tr>
         <!-- ⬆️ 자비스 자동 게시 영역 끝 (이 주석 위치 유지) -->
       </tbody>
     </table>
 
-    <!-- 더 보기 (Phase 4에서 30개 넘으면 노출) -->
-    <div class="news-more" style="display:none;">
-      <button type="button">이전 글 더 보기</button>
-    </div>
+    <!-- 페이지네이션 (협회 사이트 스타일, JS가 자동 생성) -->
+    <nav id="pagination" class="pagination" aria-label="페이지 이동"></nav>
 
   </main>
 
@@ -166,26 +164,168 @@
   </footer>
 
   <script>
-    // 카테고리 필터 — tr.news-row 대상으로 변경
-    (function() {
-      var spans = document.querySelectorAll('#news-filter ul li span');
-      var rows = document.querySelectorAll('#newslist .news-row');
+    /* ================================================================
+       NEWS 페이지 — 카테고리 필터 + 페이지네이션 + 관리자 모드
+       관리자 모드 진입: URL 끝에 #admin 붙이고 새로고침 → 비번 prompt
+       ⚠️ 비밀번호는 클라이언트 코드에 있어 안전성이 낮음. 본인만 아는 값으로 변경하세요.
+       진짜 영구 삭제는 자비스 서버 admin API로 처리해야 합니다(PUBLISHER_PY_PATCH.md 참고).
+       ================================================================ */
 
-      spans.forEach(function(span) {
-        span.addEventListener('click', function() {
-          spans.forEach(function(s) { s.classList.remove('current'); });
-          this.classList.add('current');
+    /* --- 1. 페이지네이션 + 카테고리 필터 ------------------------ */
+    var newsState = (function() {
+      var PAGE_SIZE = 30;
+      var filterSpans = document.querySelectorAll('#news-filter ul li span');
+      var allRows = Array.prototype.slice.call(document.querySelectorAll('#newslist .news-row'));
+      var pagination = document.getElementById('pagination');
 
-          var cat = this.getAttribute('data-cat');
-          rows.forEach(function(row) {
-            if (cat === 'all' || row.classList.contains(cat)) {
-              row.style.display = '';
-            } else {
-              row.style.display = 'none';
-            }
+      var currentCat = 'all';
+      var currentPage = 1;
+
+      function getVisibleRows() {
+        return allRows.filter(function(r) {
+          if (r.classList.contains('hidden-by-admin')) return false;
+          if (currentCat !== 'all' && !r.classList.contains(currentCat)) return false;
+          return true;
+        });
+      }
+
+      function render() {
+        allRows.forEach(function(r) { r.style.display = 'none'; });
+        var visible = getVisibleRows();
+        var totalPages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+        if (currentPage > totalPages) currentPage = totalPages;
+        var start = (currentPage - 1) * PAGE_SIZE;
+        visible.slice(start, start + PAGE_SIZE).forEach(function(r) { r.style.display = ''; });
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(totalPages) {
+        pagination.innerHTML = '';
+        if (totalPages <= 1) {
+          pagination.style.display = 'none';
+          return;
+        }
+        pagination.style.display = '';
+
+        function mkBtn(label, page, opts) {
+          opts = opts || {};
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = label;
+          b.className = 'page-btn';
+          if (opts.active) b.classList.add('active');
+          if (opts.disabled) b.disabled = true;
+          b.addEventListener('click', function() {
+            currentPage = page;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           });
+          return b;
+        }
+
+        pagination.appendChild(mkBtn('«', 1, { disabled: currentPage === 1 }));
+        pagination.appendChild(mkBtn('‹', currentPage - 1, { disabled: currentPage === 1 }));
+        for (var i = 1; i <= totalPages; i++) {
+          pagination.appendChild(mkBtn(String(i), i, { active: i === currentPage }));
+        }
+        pagination.appendChild(mkBtn('›', currentPage + 1, { disabled: currentPage === totalPages }));
+        pagination.appendChild(mkBtn('»', totalPages, { disabled: currentPage === totalPages }));
+      }
+
+      filterSpans.forEach(function(span) {
+        span.addEventListener('click', function() {
+          filterSpans.forEach(function(s) { s.classList.remove('current'); });
+          this.classList.add('current');
+          currentCat = this.getAttribute('data-cat');
+          currentPage = 1;
+          render();
         });
       });
+
+      return { render: render };
+    })();
+
+    /* --- 2. 관리자 모드 ---------------------------------------- */
+    (function() {
+      var ADMIN_PASSWORD = 'seoul365';                       // ← 이 값을 본인만 아는 값으로 변경하세요
+      var SESSION_KEY = 'inspection365_admin';
+      var HIDE_KEY = 'inspection365_hidden_urls';
+
+      function getHiddenUrls() {
+        try { return JSON.parse(localStorage.getItem(HIDE_KEY) || '[]'); }
+        catch (e) { return []; }
+      }
+      function setHiddenUrls(arr) {
+        localStorage.setItem(HIDE_KEY, JSON.stringify(arr));
+      }
+
+      function applyHidden() {
+        var urls = getHiddenUrls();
+        document.querySelectorAll('#newslist .news-row').forEach(function(row) {
+          var a = row.querySelector('.col-title a');
+          if (a && urls.indexOf(a.href) >= 0) row.classList.add('hidden-by-admin');
+          else row.classList.remove('hidden-by-admin');
+        });
+        newsState.render();
+      }
+
+      function addDeleteButtons() {
+        document.querySelectorAll('#newslist .news-row').forEach(function(row) {
+          if (row.querySelector('.delete-btn')) return;
+          var dateCell = row.querySelector('.col-date');
+          if (!dateCell) return;
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'delete-btn';
+          btn.textContent = '×';
+          btn.title = '이 글 숨김 (LocalStorage)';
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var a = row.querySelector('.col-title a');
+            if (!a) return;
+            if (!confirm('이 글을 숨길까요? (브라우저에서만 안 보임)')) return;
+            var urls = getHiddenUrls();
+            if (urls.indexOf(a.href) < 0) urls.push(a.href);
+            setHiddenUrls(urls);
+            applyHidden();
+          });
+          dateCell.appendChild(btn);
+        });
+      }
+
+      function enableAdminMode() {
+        document.body.classList.add('admin-mode');
+        addDeleteButtons();
+      }
+
+      function isAdmin() {
+        return sessionStorage.getItem(SESSION_KEY) === '1';
+      }
+
+      function tryEnter() {
+        if (isAdmin()) { enableAdminMode(); return; }
+        if (location.hash !== '#admin') return;
+        var pw = window.prompt('관리자 비밀번호:');
+        if (pw === null) return;
+        if (pw === ADMIN_PASSWORD) {
+          sessionStorage.setItem(SESSION_KEY, '1');
+          history.replaceState(null, '', location.pathname);
+          enableAdminMode();
+        } else {
+          window.alert('비밀번호가 다릅니다.');
+        }
+      }
+
+      // 숨김 적용은 모든 방문자에게 (LocalStorage는 본인 브라우저뿐이므로 안전)
+      applyHidden();
+      tryEnter();
+
+      // 콘솔에서 숨김 해제할 수 있도록 노출
+      window.__newsAdmin = {
+        clearHidden: function() { localStorage.removeItem(HIDE_KEY); applyHidden(); },
+        logout: function() { sessionStorage.removeItem(SESSION_KEY); location.reload(); },
+        list: getHiddenUrls
+      };
     })();
   </script>
   <script src="main.js"></script>
