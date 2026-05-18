@@ -1513,7 +1513,7 @@ body.admin-mode .news-table .delete-btn:hover {
 
 /* 관리자 모드 표시 배너 (옵션) */
 body.admin-mode::before {
-  content: "관리자 모드 (LocalStorage 숨김) — 콘솔에서 __newsAdmin.clearHidden() 또는 __newsAdmin.logout()";
+  content: "관리자 모드 (이 브라우저 한정) — 해제: 콘솔에서 __newsAdmin.logout()";
   display: block;
   background: #fff8e1;
   color: #5d4037;

@@ -166,9 +166,9 @@
   <script>
     /* ================================================================
        NEWS 페이지 — 카테고리 필터 + 페이지네이션 + 관리자 모드
-       관리자 모드 진입: URL 끝에 #admin 붙이고 새로고침 → 비번 prompt
-       ⚠️ 비밀번호는 클라이언트 코드에 있어 안전성이 낮음. 본인만 아는 값으로 변경하세요.
-       진짜 영구 삭제는 자비스 서버 admin API로 처리해야 합니다(PUBLISHER_PY_PATCH.md 참고).
+       관리자 모드 진입: URL 끝에 #admin 한 번 입력 → 그 브라우저에서 영구 활성
+       해제: 브라우저 콘솔에서 __newsAdmin.logout()
+       삭제는 LocalStorage 기반(본인 브라우저에서만 숨김). 영구 삭제는 자비스 admin API 필요.
        ================================================================ */
 
     /* --- 1. 페이지네이션 + 카테고리 필터 ------------------------ */
@@ -245,10 +245,14 @@
       return { render: render };
     })();
 
-    /* --- 2. 관리자 모드 ---------------------------------------- */
+    /* --- 2. 관리자 모드 — 비번 없음, 본인 브라우저 한정 ----------
+       진입: URL 끝에 #admin 한 번 입력 → 그 브라우저에서 영구 활성
+       해제: 콘솔에서 __newsAdmin.logout()
+       숨김은 LocalStorage에만 저장되므로 다른 사람·다른 브라우저에는 영향 없음
+       (영구 삭제 = 모두에게 안 보이게 하려면 자비스 admin API 필요, PUBLISHER_PY_PATCH.md 참고)
+       --------------------------------------------------------- */
     (function() {
-      var ADMIN_PASSWORD = 'seoul365';                       // ← 이 값을 본인만 아는 값으로 변경하세요
-      var SESSION_KEY = 'inspection365_admin';
+      var ADMIN_KEY = 'inspection365_admin';
       var HIDE_KEY = 'inspection365_hidden_urls';
 
       function getHiddenUrls() {
@@ -299,31 +303,25 @@
       }
 
       function isAdmin() {
-        return sessionStorage.getItem(SESSION_KEY) === '1';
+        return localStorage.getItem(ADMIN_KEY) === '1';
       }
 
       function tryEnter() {
         if (isAdmin()) { enableAdminMode(); return; }
         if (location.hash !== '#admin') return;
-        var pw = window.prompt('관리자 비밀번호:');
-        if (pw === null) return;
-        if (pw === ADMIN_PASSWORD) {
-          sessionStorage.setItem(SESSION_KEY, '1');
-          history.replaceState(null, '', location.pathname);
-          enableAdminMode();
-        } else {
-          window.alert('비밀번호가 다릅니다.');
-        }
+        // 비번 없이 즉시 활성 (본인 브라우저에만 영향이라 인증 불필요)
+        localStorage.setItem(ADMIN_KEY, '1');
+        history.replaceState(null, '', location.pathname);
+        enableAdminMode();
       }
 
-      // 숨김 적용은 모든 방문자에게 (LocalStorage는 본인 브라우저뿐이므로 안전)
       applyHidden();
       tryEnter();
 
-      // 콘솔에서 숨김 해제할 수 있도록 노출
+      // 콘솔 헬퍼
       window.__newsAdmin = {
         clearHidden: function() { localStorage.removeItem(HIDE_KEY); applyHidden(); },
-        logout: function() { sessionStorage.removeItem(SESSION_KEY); location.reload(); },
+        logout: function() { localStorage.removeItem(ADMIN_KEY); location.reload(); },
         list: getHiddenUrls
       };
     })();
